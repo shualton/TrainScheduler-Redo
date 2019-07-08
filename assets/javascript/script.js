@@ -19,3 +19,13 @@ var newTrain = {
     ftrain: firstTrain,
     freq: frequency
     }
+
+$('#addTrainBtn').on("click", function() {
+    database.ref().push(newTrain);
+    console.log(newTrain.name);
+    $("#trainNameInput").val("");
+    $("#destinationInput").val("");
+    $("#timeInput").val("");
+    $("#frequencyInput").val("");
+    return false;
+});
