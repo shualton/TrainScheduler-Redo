@@ -31,5 +31,8 @@ $('#addTrainBtn').on("click", function() {
 });
 
 database.ref().on("child_added", function(childSnapshot) {
-    
+    var trainName = childSnapshot.val().name;
+    var destination = childSnapshot.val().place;
+    var firstTrain = childSnapshot.val().ftrain;
+    var frequency = childSnapshot.val().freq;s
   });
