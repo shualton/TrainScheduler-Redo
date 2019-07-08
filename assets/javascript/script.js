@@ -8,5 +8,14 @@ var firebaseConfig = {
     appId: "1:442170095409:web:4371a828a6f599ab"
   };
   firebase.initializeApp(firebaseConfig);
-  var database = firebase.database();
-  
+var database = firebase.database();
+var trainName = $("#trainNameInput").val().trim();
+var destination = $("#destinationInput").val().trim();
+var firstTrain = moment($("#timeInput").val().trim(), "HH:mm").format("HH:mm");
+var frequency = $("#frequencyInput").val().trim();
+var newTrain = {
+    name: trainName,
+    place: destination,
+    ftrain: firstTrain,
+    freq: frequency
+    }
