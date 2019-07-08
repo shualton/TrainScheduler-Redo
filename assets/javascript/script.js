@@ -35,9 +35,7 @@ database.ref().on("child_added", function(childSnapshot) {
     var destination = childSnapshot.val().place;
     var firstTrain = childSnapshot.val().ftrain;
     var frequency = childSnapshot.val().freq;
-    var timeDiff = moment().diff(moment(moment(firstTrain, "HH:mm");), "minutes");
-    var timeRemainder = timeDiff % frequency;
-    var minToTrain = frequency - timeRemainder;
-    var nxTrain = moment().add(minToTrain, "minutes").format("HH:mm");
+    var timeDiff = moment().diff(moment(moment(firstTrain, "HH:mm")), "minutes");
+    var nxTrain = moment().add(frequency - (timeDiff % frequency), "minutes").format("HH:mm");
     $("#trainTable>tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + nxTrain + "</td><td>" + frequency + "</td><td>" + minToTrain + "</td></tr>");
   });
