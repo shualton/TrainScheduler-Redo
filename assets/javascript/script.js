@@ -29,3 +29,7 @@ $('#addTrainBtn').on("click", function() {
     $("#frequencyInput").val("");
     return false;
 });
+
+database.ref().on("child_added", function(childSnapshot) {
+    
+  });
